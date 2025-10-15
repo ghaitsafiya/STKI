@@ -39,9 +39,12 @@ Model ini memungkinkan pencarian dokumen berdasarkan ekspresi logika menggunakan
 Query: data AND informasi
 Hasil: Dokumen [1, 3]
 
-
 ## 📦 Dependensi
 - Python ≥ 3.10  
 - NLTK  
 - Sastrawi  
 - Pandas  
+
+## 💡 Kesimpulan
+Eksperimen ini menunjukkan bagaimana **Boolean Model** bekerja dengan menghubungkan preprocessing teks dan pencarian berbasis logika.  
+Model ini merupakan dasar dari sistem pencarian klasik sebelum berkembang ke model vektor dan probabilistik.
