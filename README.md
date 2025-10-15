@@ -37,9 +37,10 @@ Membangun model pencarian sederhana berdasarkan **Boolean Model** menggunakan op
 
 **Output:**  
 Hasil pencarian berupa daftar dokumen yang relevan terhadap query Boolean.
-
+ 
 **Notebook utama:**  
-`Minggu3/BooleanModel.ipynb`
+- [📄 Lihat di GitHub](Minggu3/BooleanModel.ipynb)  
+- [🚀 Jalankan di Colab](https://colab.research.google.com/github/ghaitasafiya/STKI/blob/main/Minggu3/BooleanModel.ipynb)
 
 ---
 
