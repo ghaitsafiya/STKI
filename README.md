@@ -6,57 +6,87 @@ Seluruh eksperimen dijalankan menggunakan **Google Colab** dan disimpan di repos
 
 ## Daftar Eksperimen
 
-### 📂 Minggu 2 — *Document Preprocessing & Word Frequency*
+### 📂 Minggu 2 — *Text Preprocessing dengan NLTK*
 **Tujuan:**  
-Melakukan proses awal pengolahan teks seperti:
-- *Case folding* (mengubah semua huruf menjadi huruf kecil)
-- *Tokenisasi* (memecah teks menjadi kata-kata)
-- *Stopword removal* (menghapus kata-kata umum seperti "dan", "yang", dll)
-- Analisis frekuensi kata  
+Melakukan tahapan awal pengolahan teks menggunakan Natural Language Toolkit (NLTK) untuk membersihkan dan menyiapkan data teks sebelum digunakan dalam model Information Retrieval.
 
-**Output:**  
-Dataset teks yang sudah dibersihkan dan file CSV berisi daftar kata serta jumlah kemunculannya.
+**Tahapan Eksperimen:**
+1. Membaca teks berita dari file .json
+2. Melakukan case folding (mengubah seluruh huruf menjadi huruf kecil)
+3. Membersihkan teks dari angka, tanda baca, dan karakter non-alfabet
+4. Melakukan tokenisasi menggunakan nltk.word_tokenize()
+5. Menghapus stopwords menggunakan daftar kata umum dari nltk.corpus.stopwords
+6. Melakukan stemming untuk mengembalikan kata ke bentuk dasar (misalnya: “berlari” → “lari”)
 
-**Notebook utama:**  
-📂 [Minggu 2 — Text Preprocessing & Word Frequency](Minggu2/)
+**Hasil:**
+Dataset yang sudah dibersihkan dan siap digunakan untuk proses selanjutnya seperti indexing dan retrieval.
+
+**Tools & Library:**
+nltk, re, string, pandas, matplotlib, (opsional: Sastrawi, wordcloud)
+
+📁 [Minggu 2 — Text Preprocessing dengan NLTK](Minggu2/)
+📄 Notebook: TextPreprocessing_NLTK.ipynb
 
 ---
 
-### 📂 Minggu 3 — *Boolean Retrieval Model*
+### 📂 Minggu 3 — *Boolean Model Implementation*
 
 **Tujuan:**  
-Membangun model pencarian sederhana berdasarkan **Boolean Model** menggunakan operator logika seperti:
-- `AND`
-- `OR`
-- `NOT`
+Membangun sistem pencarian informasi sederhana menggunakan Boolean Retrieval Model,
+yang bekerja berdasarkan operasi logika (AND, OR, NOT) untuk menemukan dokumen yang relevan terhadap query pengguna.
 
-**Langkah utama:**
-1. Melakukan preprocessing teks (tokenisasi dan stopword removal)
-2. Membuat *inverted index* dari kumpulan dokumen
-3. Menerapkan pencarian berdasarkan query Boolean seperti `modi AND india`
+**Tahapan Eksperimen:**
+1. Membaca dokumen teks (.txt) dari folder data/
+2. Melakukan text preprocessing (case folding, tokenisasi, stopword removal)
+3. Membentuk Inverted Index untuk mencatat kemunculan setiap term dalam dokumen
+4. Menyusun Incidence Matrix yang merepresentasikan relasi term ↔ dokumen
+5. Mengimplementasikan fungsi pencarian Boolean menggunakan operator:
+   - AND → semua kata harus muncul
+   - OR → salah satu kata muncul
+   - NOT → mengecualikan kata tertentu
+6. Menguji hasil query dan menganalisis kombinasi logika pencarian
 
-**Output:**  
-Hasil pencarian berupa daftar dokumen yang relevan terhadap query Boolean.
- 
-**Notebook utama:**  
-📂 [Minggu 3 — Boolean Model](Minggu3/)
+**Hasil:**
+Sistem pencarian berbasis Boolean sederhana yang dapat memproses query dan menampilkan daftar dokumen relevan.
+
+**Tools & Library:**
+nltk, re, glob, pandas, numpy
+
+📁 [Minggu 3 — Boolean Model Implementation](Minggu3/)
+📄 Notebook: boolean_model.ipynb
 
 ---
 
-### 📂 Minggu 4 — *Feature Extraction & Document Similarity*
+### 📂 Minggu 4 — *Vector Space Model (Bag of Words & TF-IDF)*
 
-**Eksperimen 1 — TF-IDF Vectorization**  
-Melakukan *feature extraction* menggunakan metode:
-- **Bag of Words (BoW)**
-- **TF-IDF (Term Frequency – Inverse Document Frequency)**  
-Tujuannya untuk merepresentasikan dokumen dalam bentuk numerik (vektor).
+**Tujuan:**
+Menerapkan representasi teks menggunakan Vector Space Model (VSM) dengan pendekatan Bag of Words (BoW) dan TF-IDF weighting untuk mengukur kesamaan antar dokumen.
 
-**Eksperimen 2 — Document Similarity**  
-Menghitung tingkat kesamaan antar dokumen menggunakan **Cosine Similarity** berdasarkan hasil TF-IDF.
+**Tahapan Eksperimen 1 — Bag of Words & TF-IDF:**
+1. Membaca dataset .csv
+2. Melakukan preprocessing ringan terhadap teks (case folding, tokenisasi)
+3. Mengubah teks menjadi representasi numerik dengan:
+   - CountVectorizer → Bag of Words
+   - TfidfVectorizer → TF-IDF
+4. Membandingkan hasil dua model dalam bentuk matrix term-document
+5. Menyimpan hasil TF-IDF dalam file .csv
 
-**Output:**  
-- File `tfidf_matrix.csv` yang berisi bobot kata untuk tiap dokumen  
-- Matriks kesamaan antar dokumen (`similarity_matrix`)
+📓 Notebook: bag_of_words&TF_IDF.ipynb
+
+**Tahapan Eksperimen 2 — Document Similarity:**
+1. Membaca hasil TF-IDF matrix
+2. Menghitung cosine similarity antar dokumen
+3. Menampilkan hasil dalam bentuk similarity matrix
+4. Menginterpretasikan nilai kesamaan antar dokumen
+
+📓 Notebook: document_similarity.ipynb
+
+**Hasil:**
+Model VSM yang mampu merepresentasikan teks dalam ruang vektor
+dan menghitung kemiripan antar dokumen dengan metode cosine similarity.
+
+**Tools & Library:**
+scikit-learn, pandas, seaborn, matplotlib, wordcloud
 
 **Notebook utama:**  
 📂 [Minggu 4 — TF-IDF & Cosine Similarity](Minggu4/)
@@ -74,3 +104,11 @@ Menghitung tingkat kesamaan antar dokumen menggunakan **Cosine Similarity** berd
   - `notebooks/` → notebook eksperimen utama  
   - `results/` → hasil olahan model  
 - Struktur folder mengikuti format mingguan agar mudah ditelusuri
+
+| Kategori               | Teknologi                      |
+| :--------------------- | :----------------------------- |
+| **Bahasa Pemrograman** | Python 3.10                    |
+| **Platform**           | Google Colab                   |
+| **Visualisasi**        | Matplotlib, Seaborn, WordCloud |
+| **NLP Tools**          | NLTK, scikit-learn             |
+| **Version Control**    | Git + GitHub                   |
