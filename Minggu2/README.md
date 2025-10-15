@@ -1,27 +1,41 @@
-### 📂 Minggu 2 — *Text Preprocessing dengan NLTK*
-**Tujuan:**  
-Melakukan tahap awal pengolahan teks menggunakan pustaka NLTK untuk mempersiapkan data sebelum digunakan dalam model pencarian informasi.
+# 🧠 Minggu 2 — Text Preprocessing dengan NLTK
 
-**Tahapan Eksperimen:**
-1. Import dan Pembacaan Data
-   - Membaca dataset teks dari file .txt atau input langsung.
-   - Menampilkan contoh isi dokumen.
-2. Case Folding
-   - Mengubah seluruh huruf menjadi huruf kecil agar konsisten
-3. Tokenisasi
-   - Memecah teks menjadi satuan kata menggunakan nltk.word_tokenize().
-4. Pembersihan Teks (Cleaning)
-   - Menghapus tanda baca (string.punctuation), angka, serta karakter non-alfabet dengan modul re (regular expression).
-5. Stopword Removal
-   - Menghapus kata-kata umum yang tidak memiliki makna penting (seperti “yang”, “dan”, “di”) menggunakan daftar stopword bahasa Indonesia dari nltk.corpus.stopwords.
-6. Stemming (opsional, jika digunakan)
-   - Mengubah kata ke bentuk dasarnya dengan StemmerFactory dari Sastrawi jika diaktifkan pada bagian eksperimen.
-7. Perhitungan Frekuensi Kata (Word Frequency)
-   - Menghitung jumlah kemunculan setiap kata dalam dokumen menggunakan nltk.FreqDist().
-   - Menyimpan hasil dalam bentuk DataFrame agar mudah divisualisasikan.
-8. Visualisasi
-   - Membuat bar chart frekuensi kata paling sering muncul menggunakan matplotlib.
-   - Menampilkan WordCloud (jika digunakan) untuk ilustrasi distribusi kata.
+Eksperimen ini bertujuan untuk memahami dan mengimplementasikan tahap **text preprocessing** menggunakan library **NLTK (Natural Language Toolkit)** sebagai bagian dari mata kuliah *Sistem Temu Kembali Informasi (STKI)*.
 
-Tools yang Digunakan:
-nltk, re, string, pandas, matplotlib, (opsional: Sastrawi, wordcloud)
+## 🎯 Tujuan
+Melakukan pembersihan dan normalisasi teks agar siap digunakan untuk proses analisis lebih lanjut seperti perhitungan frekuensi kata atau pembentukan *index term*.
+
+## 🔍 Langkah Eksperimen
+1. **Import Library**
+   - Menggunakan `nltk`, `string`, dan `pandas`.
+   - Melakukan *download* resource NLTK seperti `stopwords`.
+2. **Input Data**
+   - Menggunakan teks contoh yang berisi kalimat dalam Bahasa Indonesia.
+3. **Case Folding**
+   - Mengubah semua huruf menjadi huruf kecil (*lowercase*).
+4. **Tokenization**
+   - Memecah teks menjadi potongan kata (*tokens*).
+5. **Cleaning**
+   - Menghapus tanda baca, simbol, dan karakter non-alfabet.
+6. **Stopword Removal**
+   - Menghapus kata-kata umum yang tidak memiliki makna penting (seperti “dan”, “yang”, “atau”).
+7. **Stemming**
+   - Mengubah kata menjadi bentuk dasarnya menggunakan `PorterStemmer` atau stemmer Bahasa Indonesia.
+8. **Output**
+   - Menampilkan hasil tokenisasi, stopword removal, dan stemming.
+   - (Opsional) Menyimpan hasil dalam file `.csv` untuk analisis lanjutan.
+
+## 💾 Hasil
+Hasil preprocessing menunjukkan perubahan signifikan pada teks:
+- Teks menjadi bersih, terstandardisasi, dan siap untuk proses analisis lanjutan.
+- Token yang tersisa merepresentasikan kata-kata penting (*keywords*) dari dokumen.
+
+Contoh hasil:
+Input: "Andi dan Icha kerap melakukan transaksi rutin secara daring atau online."
+Output: ['andi', 'icha', 'kerap', 'laku', 'transaksi', 'rutin', 'daring', 'online']
+
+
+## 📦 Dependensi
+- Python ≥ 3.10
+- NLTK
+- Pandas
