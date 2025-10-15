@@ -18,7 +18,7 @@ Melakukan proses awal pengolahan teks seperti:
 Dataset teks yang sudah dibersihkan dan file CSV berisi daftar kata serta jumlah kemunculannya.
 
 **Notebook utama:**  
-`Minggu2/TextPreprocessing_NLTK.ipynb`
+📂 [Minggu 2 — Text Preprocessing & Word Frequency](Minggu2/)
 
 ---
 
@@ -39,8 +39,7 @@ Membangun model pencarian sederhana berdasarkan **Boolean Model** menggunakan op
 Hasil pencarian berupa daftar dokumen yang relevan terhadap query Boolean.
  
 **Notebook utama:**  
-- [📄 Lihat di GitHub](Minggu3/BooleanModel.ipynb)  
-- [🚀 Jalankan di Colab](https://colab.research.google.com/github/ghaitasafiya/STKI/blob/main/Minggu3/BooleanModel.ipynb)
+📂 [Minggu 3 — Boolean Model](Minggu3/)
 
 ---
 
@@ -60,17 +59,18 @@ Menghitung tingkat kesamaan antar dokumen menggunakan **Cosine Similarity** berd
 - Matriks kesamaan antar dokumen (`similarity_matrix`)
 
 **Notebook utama:**  
-- `Minggu4/1_TFIDF_Vectorization.ipynb`
-- `Minggu4/2_Document_Similarity.ipynb`
+📂 [Minggu 4 — TF-IDF & Cosine Similarity](Minggu4/)
 
 ---
 
 ## Catatan Tambahan
-
 - Semua eksperimen menggunakan pustaka:
   - `nltk`
   - `scikit-learn`
   - `pandas`
   - `numpy`
-- Folder `results/` berisi hasil olahan data dari setiap eksperimen
+- Setiap folder berisi:
+  - `data/` → kumpulan dokumen teks  
+  - `notebooks/` → notebook eksperimen utama  
+  - `results/` → hasil olahan model  
 - Struktur folder mengikuti format mingguan agar mudah ditelusuri
