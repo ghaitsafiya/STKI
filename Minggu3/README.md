@@ -1,16 +1,47 @@
-# 🧠 Minggu 3 — Boolean Model & Text Preprocessing
+# 🧠 Minggu 3 — Boolean Model untuk Pencarian Dokumen
 
-Eksperimen ini berfokus pada dua hal utama:
-1. **Boolean Model** untuk pencarian dokumen berdasarkan query logika.
-2. **Text Preprocessing** menggunakan NLTK dan Sastrawi (pembersihan teks, tokenisasi, stopword removal, dan stemming).
+Eksperimen ini bertujuan memahami cara kerja **Boolean Retrieval Model** dalam Sistem Temu Kembali Informasi (STKI).  
+Model ini memungkinkan pencarian dokumen berdasarkan ekspresi logika menggunakan operator **AND**, **OR**, dan **NOT**.
 
-## 📂 Struktur Folder
-- `data/` → berisi kumpulan dokumen teks.
-- `notebooks/` → berisi notebook eksperimen (`BooleanModel.ipynb`, `TextPreprocessing_NLTK.ipynb`).
-- `results/` → hasil preprocessing teks.
+## 🎯 Tujuan
+- Memahami prinsip kerja model boolean dalam pencarian teks.  
+- Mengimplementasikan proses *indexing* dan *retrieval* sederhana menggunakan Python.  
+- Menghubungkan hasil preprocessing teks dengan model pencarian dokumen.
 
-## ⚙️ Library yang Dibutuhkan
-Lihat file `requirements.txt`.
+## 🔍 Langkah Eksperimen
+1. **Import Library**
+   - Menggunakan `NLTK`, `Sastrawi`, dan `pandas` untuk pemrosesan teks.
+2. **Text Preprocessing**
+   - *Case Folding*: Mengubah huruf menjadi huruf kecil.
+   - *Tokenization*: Memecah dokumen menjadi token.
+   - *Stopword Removal*: Menghapus kata umum yang tidak informatif.
+   - *Stemming*: Mengubah kata ke bentuk dasarnya dengan stemmer Bahasa Indonesia (Sastrawi).
+3. **Membangun Inverted Index**
+   - Menyusun struktur data yang mencatat setiap term dan daftar dokumen tempat term tersebut muncul.
+   - Contoh:
+     ```
+     {
+       "data": [1, 3],
+       "informasi": [2, 3],
+       "retrieval": [1]
+     }
+     ```
+4. **Pencarian dengan Boolean Query**
+   - Pengguna dapat memasukkan query seperti:
+     - `data AND informasi`
+     - `data OR retrieval`
+     - `informasi AND NOT retrieval`
+   - Sistem akan mengembalikan daftar dokumen yang memenuhi ekspresi logika tersebut.
+5. **Evaluasi Hasil**
+   - Menampilkan daftar dokumen yang relevan sesuai query.
 
-## 💡 Hasil
-Hasil preprocessing disimpan di `results/clean_dataset_nltk.csv`.
+## 💾 Contoh Output
+Query: data AND informasi
+Hasil: Dokumen [1, 3]
+
+
+## 📦 Dependensi
+- Python ≥ 3.10  
+- NLTK  
+- Sastrawi  
+- Pandas  
